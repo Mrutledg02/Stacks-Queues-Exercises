@@ -1,0 +1,44 @@
+Create two stacks: forwardStack and backStack
+
+Function visitPage(url):
+    // Clear forwardStack as we are visiting a new page
+    clearStack(forwardStack)
+    
+    // Push the url onto backStack
+    push(backStack, url)
+
+Function goBack():
+    // If backStack is empty, there are no pages to go back to
+    if isEmpty(backStack):
+        return "Cannot go back, no pages in history"
+    
+    // Pop the top page from backStack
+    currentPage = pop(backStack)
+    
+    // Push the current page onto forwardStack
+    push(forwardStack, currentPage)
+    
+    // Load the previous page (the top page of backStack)
+    loadPage(currentPage)
+
+Function goForward():
+    // If forwardStack is empty, there are no pages to go forward to
+    if isEmpty(forwardStack):
+        return "Cannot go forward, no pages in history"
+    
+    // Pop the top page from forwardStack
+    currentPage = pop(forwardStack)
+    
+    // Push the current page onto backStack
+    push(backStack, currentPage)
+    
+    // Load the next page (the top page of forwardStack)
+    loadPage(currentPage)
+
+Function clearStack(stack):
+    // Pop all elements from the stack until it becomes empty
+    while !isEmpty(stack):
+        pop(stack)
+
+Function loadPage(url):
+    // Load the page with the given URL in the browser

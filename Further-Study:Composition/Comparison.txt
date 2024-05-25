@@ -1,0 +1,6 @@
+Comparison and Preference
+Using a LinkedList provides the benefit of consistent O(1) time complexity for adding and removing elements from the front (in the case of a stack) or back (in the case of a queue). However, it can be more complex to implement and manage.
+
+Using an array is simpler and more straightforward, but operations like shift (for dequeue in a queue) can have O(n) time complexity because all elements need to be shifted.
+
+Preference: If you need efficient operations for large datasets and consistent time complexity, a LinkedList might be preferable. For smaller datasets or simpler use cases, using an array can be more convenient and easier to manage.
